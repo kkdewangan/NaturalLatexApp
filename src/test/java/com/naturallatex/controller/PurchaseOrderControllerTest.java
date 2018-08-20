@@ -1,6 +1,6 @@
 package com.naturallatex.controller;
 
-import com.naturallatex.entity.Customer;
+import com.naturallatex.entity.PurchaseOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,18 +27,12 @@ public class PurchaseOrderControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void post_NewBillingAddress() {
+    public void post() {
         String baseURL = "http://localhost:" + port + "/nl/purchaseOrder";
-        Customer o = new Customer();
-
-        o.setEmail("aa@aa.com");
-        o.setFax("312-456-8790");
-        o.setFirstName("TestFirstName");
-        o.setLastName("TestLastName");
-        o.setPassword("testpass");
-        o.setPhone("231-342-9876");
-        o.setStatus(true);
-        ResponseEntity<Customer> res = restTemplate.postForEntity(baseURL+"/new",o, Customer.class);
+        PurchaseOrder o = new PurchaseOrder();
+        o.setCustId(new Long(123));
+        o.setProductId(new Long(123459));
+        ResponseEntity<PurchaseOrder> res = restTemplate.postForEntity(baseURL+"/new",o, PurchaseOrder.class);
         assertEquals(HttpStatus.OK, res.getStatusCode());
         //assertTrue(res.getBody().getId() > 0);
         //assertEquals("Peter", res.getBody().getFirstName());

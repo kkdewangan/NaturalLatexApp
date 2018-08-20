@@ -1,5 +1,7 @@
 package com.naturallatex.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -18,14 +20,21 @@ public class PurchaseOrder implements Serializable {
     private Long id;
 
     private Long custId;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date orderDate;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date paymentDate;
+
     private Long paymentDetailId;
     private Long shippingAddressId;
     private Long billingAddressId;
     private Long productId;
     private Double transitInsuranceFee;
     private Long qty;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date shippingDate;
     private Long orderLineNumber;
 
