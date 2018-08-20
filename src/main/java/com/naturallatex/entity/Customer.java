@@ -12,8 +12,7 @@ public class Customer implements Serializable{
 
     @Id
     @Column(name = "cust_id")
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_seq")
-    //@SequenceGenerator(sequenceName = "customer_seq", allocationSize = 1, name = "customer_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
 

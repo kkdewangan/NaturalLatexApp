@@ -31,7 +31,7 @@ public class TestBillingAddressREST {
 
     HttpHeaders headers = new HttpHeaders();
 
-    private String createURLWithPort(String uri) {
+    private String (String uri) {
         return "http://localhost:" + port + uri;
     }
 
@@ -52,7 +52,7 @@ public class TestBillingAddressREST {
 //        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
 //
 //        ResponseEntity<String> response = restTemplate.exchange(
-//                createURLWithPort("/billingAddresses"),
+//                ("/billingAddresses"),
 //                HttpMethod.GET, entity, String.class);
 //
 //        String expected = "{}";
@@ -78,7 +78,7 @@ public class TestBillingAddressREST {
         HttpEntity<BillingAddress> entity = new HttpEntity<BillingAddress>(address, headers);
 
         ResponseEntity<String> response = restTemplate.exchange(
-                createURLWithPort("/billingAddress"),
+                ("/billingAddress"),
                 HttpMethod.POST, entity, String.class);
 
         String actual = response.getHeaders().get(HttpHeaders.LOCATION).get(0);
